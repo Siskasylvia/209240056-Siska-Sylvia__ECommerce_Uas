@@ -231,4 +231,9 @@ footer {
   flex-direction: column;
   gap: 10px;
 }
+#checkout-btn:hover {
+  background-color: #1f2790;
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
 

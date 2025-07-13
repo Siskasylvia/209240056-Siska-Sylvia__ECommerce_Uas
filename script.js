@@ -59,3 +59,28 @@ window.onload = () => {
   updateCartCount();
   displayCart();
 };
+function checkout() {
+  if (cart.length === 0) {
+    alert("Keranjang belanja kosong! Tambahkan produk terlebih dahulu.");
+    return;
+  }
+
+  let summary = "Detail Pembelian:\n\n";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    summary += `${index + 1}. ${item.nama} - Rp ${item.harga.toLocaleString()}\n`;
+    total += item.harga;
+  });
+
+  summary += `\nTotal Pembayaran: Rp ${total.toLocaleString()}`;
+  
+  // Tampilkan ringkasan checkout
+  alert(summary);
+
+  // Kosongkan keranjang setelah checkout
+  cart = [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  displayCart();
+}
